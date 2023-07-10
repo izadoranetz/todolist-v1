@@ -1,0 +1,37 @@
+<%- include('header'); -%>
+    <div class="box" id="heading">
+      <h1><%= listTitle %></h1>
+    </div>
+    <div class="box">
+      <form class="item" action="/" method="post">
+        <input
+          type="text"
+          name="newItem"
+          placeholder="New Task"
+          autocomplete="off"
+        />
+        <button type="submit" name="list" value=<%= listTitle %>>+</button>
+      </form>
+      <div class="list">
+        
+          <!-- <% for (let i=0; i < newListItems.length; i++) {  %>
+            <input type="checkbox" />
+            <p><%= newListItems[i] %></p> 
+            <% }  %> -->
+
+          <!-- mesma solução com forEach -->
+          <!-- <% newListItems.forEach(function(item){ %>
+              <li><%= item %></li>
+              <% }) %> -->
+
+          <!-- mesma solução, utilizando map -->
+          <% newListItems.map(item => { %>
+            <div class="item">
+          <input type="checkbox" />
+          <p><%= item %></p>
+        </div>
+          <% }) %>
+        
+      </div>
+    </div>
+    <%- include('footer'); -%>
